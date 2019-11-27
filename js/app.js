@@ -1,5 +1,9 @@
 var result = [];
 var arr = [1 , 2, 3, 4, 5, 6, 7, 8, 1 , 2, 3, 4, 5, 6, 7, 8];
+
+var currentSelectedId = "";
+
+
 mycardsMain();
 
 function mycardsMain() {
@@ -40,19 +44,26 @@ console.log(z, y);
 
 
 function flip(id){
-
-    if(document.getElementById(id).className=="card"){
-
-      var element = document.getElementById(id);
-     element.classList.add("flipped");
-
+  //  console.log(currentSelectedId);
+    if(currentSelectedId == id){
+     console.log("already inside");
     }else{
-
-      var element = document.getElementById(id);
-     element.classList.remove("flipped");
-
-
+        currentSelectedId = id;
+        console.log(currentSelectedId);
+        if(document.getElementById(id).className=="card"){
+    
+          var element = document.getElementById(id);
+         element.classList.add("flipped");
+    
+        }else{
+    
+          var element = document.getElementById(id);
+         element.classList.remove("flipped");
+    
+    
+        }
     }
+    
     
     
 }
