@@ -1,5 +1,6 @@
 var result = [];
 var arr = [1 , 2, 3, 4, 5, 6, 7, 8, 1 , 2, 3, 4, 5, 6, 7, 8];
+var matchedCards = []; 
 
 var firstSelectedId = "";
 var firstCardValue= "";
@@ -45,6 +46,12 @@ document.getElementById("cardcontainer").innerHTML=divstr;
 }
 
 function swap(id , value){
+
+//console.log(matchedCards);
+
+if(matchedCards.length>0){
+console.log(matchedCards.find(element => element == id));
+}
   if(firstSelectedId==""){
     firstSelectedId = id;
     firstCardValue = value;
@@ -58,6 +65,8 @@ function swap(id , value){
       setTimeout(function (){
         if(firstCardValue==secondCardValue){
           console.log("match");
+          matchedCards.push(firstSelectedId);
+          matchedCards.push(secondCardId);
           reset();
         }
         else{
